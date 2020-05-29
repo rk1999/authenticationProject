@@ -17,11 +17,8 @@ if(process.env.NODE_ENV !== 'production') {
 
 //Connect to Mongo
 mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-const db = mongoose.connection
-db.on('error', error => console.error(error))
-db.once('open', () => console.log('Connected to mongoose'))
-    // .then(() => console.log('MongoDB Connected.....'))
-    // .catch(err => console.log(err));
+    .then(() => console.log('MongoDB Connected.....'))
+    .catch(err => console.log(err));
 
 //EJS
 app.use(expressLayouts);
