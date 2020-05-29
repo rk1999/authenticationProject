@@ -11,7 +11,9 @@ const app = express();
 require('./config/passport')(passport);
 
 //DB Config
-require('dotenv').config({path: '.env'})
+if(process.env.NODE_ENV !== 'production') {
+    require('dotenv').config({path: '.env'})
+}
 
 //Connect to Mongo
 mongoose.connect(process.env.DATABASE_URI, { useNewUrlParser: true, useUnifiedTopology: true })
